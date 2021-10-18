@@ -1,6 +1,80 @@
-body { margin: 0; padding-bottom: 3rem; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+@import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
 
-#messageForm { background: rgba(0, 0, 0, 0.15); padding: 0.25rem; position: fixed; bottom: 0; left: 0; right: 0; display: flex; height: 3rem; box-sizing: border-box; backdrop-filter: blur(10px); }
-#messageInput { border: none; padding: 0 1rem; flex-grow: 1; border-radius: 2rem; margin: 0.25rem; }
-#messageInput:focus { outline: none; }
-#messageForm > button { background: #333; border: none; padding: 0 1rem; margin: 0.25rem; border-radius: 3px; outline: none; color: #fff; }
+.flex-container{
+    display: flex;
+    margin: 0 10em;
+    column-gap: 1em;
+}
+
+.details{
+    display: flex;
+    flex-direction: column;
+    background-color: #F3F1F5;
+    height: 100%;
+    padding: .5em;
+    margin-top: .5em;
+    border-radius: .3em; 
+}
+
+body { 
+    margin: 0; 
+    padding-bottom: 3rem; 
+    font-family: 'Karla', sans-serif; 
+    height: 100%; 
+}
+
+#messages{
+    display: flex;
+    flex-direction: column;
+    width: 100%
+}
+
+.message{
+    background-color: #F3F1F5;
+    display: flex; 
+    width: 100%;
+    margin: .5em 0;
+    flex-direction: column;
+    padding: .5em;
+    border-radius: .3em; 
+}
+
+.message p{
+    margin: 0;
+}
+
+#messageForm { 
+    background: #6D8299; 
+    margin: 1em 10em; 
+    padding: 0.3em; 
+    border-radius: .3em; 
+    position: fixed; 
+    bottom: 0; 
+    left: 0; 
+    right: 0; 
+    display: flex; 
+    height: 3em; 
+    box-sizing: border-box; 
+}
+
+#messageInput { 
+    border: none; 
+    padding: 0 1em; 
+    flex-grow: 1; 
+    border-radius: .3em; 
+    margin: 0.25rem; 
+}
+
+#messageInput:focus { 
+    outline: none; 
+}
+
+#messageForm > button { 
+    background: #D5BFBF; 
+    border: none; 
+    padding: 0 1rem; 
+    margin: 0.25em; 
+    border-radius: .3em; 
+    outline: none; 
+    color: #000; 
+}
