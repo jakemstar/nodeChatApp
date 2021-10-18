@@ -5,32 +5,23 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <ul id="messages"></ul>
-        <form id="messageForm" action="">
-        <input id="messageInput" autocomplete="off" /><button>Send</button>
+        <form action="chat.html">
+            <div class="form-control">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" placeholder="Enter username..." autocomplete="off" required />
+            </div>
+            <div class="form-control">
+                <label for="room">Room</label>
+                <select name="room" id="room">
+                    <option value="Room1">Room1</option>
+                    <option value="Room2">Room2</option>
+                    <option value="Room3">Room3</option>
+                    <option value="Room4">Room4</option>
+                    <option value="Room5">Room5</option>
+                    <option value="Room6">Room6</option>
+                </select>
+            </div>
+            <button type="submit" class="btn">Join</button>
         </form>
     </body>
-    <script src="/socket.io/socket.io.js"></script>
-    <script>
-        var socket = io();
-
-        var messages = document.getElementById('messages');
-        var messageForm = document.getElementById('messageForm');
-        var messageInput = document.getElementById('messageInput');
-
-        messageForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        if (messageInput.value) {
-            socket.emit('chat message', messageInput.value);
-            messageInput.value = '';
-            }
-        });
-
-        socket.on('chat message', function(msg) {
-            var item = document.createElement('li');
-            item.textContent = msg;
-            messages.appendChild(item);
-            window.scrollTo(0, document.body.scrollHeight);
-        });
-    </script>
 </html>

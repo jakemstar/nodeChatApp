@@ -1,0 +1,39 @@
+const express = require('express');
+const app = express();
+const http = require('http');
+const server = http.createServer(app);
+const { Server } = require("socket.io");
+const io = new Server(server);
+const path = require('path');
+const formatMessage = require('./utils/messages');
+const { userJoin, getCurrentUser, userLeave, getRoomUsers } = require('./utils/users');
+
+// set static folder to public
+app.use(express.static(path.join(__dirname, 'public')));
+
+// run when 
+io.on('connection', (socket) => {
+  socket.on('joinRoom', ({username, room}) => {
+    const user = userJoin(socket.id, username, room);
+
+    socket.join(user.room);
+
+    socket.broadcast.to(user.room).emit('chat message', formatMessage('Server', `${user.username} joined`))
+  })
+
+  socket.on('chat message', (msg) => {
+    const user = getCurrentUser(socket.id);
+    io.to(user.room).emit('chat message', formatMessage(user.username, msg));
+  });
+
+  socket.on('disconnect', () => {
+    const user = userLeave(socket.id);
+    if (user){
+      io.to(user.room).emit('chat message', formatMessage('Server', `${user.username} left`))
+    }
+  })
+});
+
+server.listen(3000, () => {
+  console.log('listening on *:3000');
+});
