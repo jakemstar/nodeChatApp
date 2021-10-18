@@ -6,8 +6,8 @@
     </head>
     <body>
         <ul id="messages"></ul>
-        <form id="form" action="">
-        <input id="input" autocomplete="off" /><button>Send</button>
+        <form id="messageForm" action="">
+        <input id="messageInput" autocomplete="off" /><button>Send</button>
         </form>
     </body>
     <script src="/socket.io/socket.io.js"></script>
@@ -15,14 +15,14 @@
         var socket = io();
 
         var messages = document.getElementById('messages');
-        var form = document.getElementById('form');
-        var input = document.getElementById('input');
+        var messageForm = document.getElementById('messageForm');
+        var messageInput = document.getElementById('messageInput');
 
-        form.addEventListener('submit', function(e) {
+        messageForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        if (input.value) {
-            socket.emit('chat message', input.value);
-            input.value = '';
+        if (messageInput.value) {
+            socket.emit('chat message', messageInput.value);
+            messageInput.value = '';
             }
         });
 
