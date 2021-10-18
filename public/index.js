@@ -3,6 +3,8 @@ var socket = io();
 var messages = document.getElementById('messages');
 var messageForm = document.getElementById('messageForm');
 var messageInput = document.getElementById('messageInput');
+var roomHeader = document.getElementById('roomHeader');
+var userList = document.getElementById('userList');
 
 const { username, room } = Qs.parse(location.search, {
     ignoreQueryPrefix: true
@@ -28,3 +30,9 @@ socket.on('chat message', function(messageObject) {
     // scroll to bottom
     window.scrollTo(0, document.body.scrollHeight);
 });
+
+socket.on('roomUsers', ({ room, users }) => {
+    roomHeader.innerText = `Users In ${room}`;
+
+    userList.innerHTML=`${users.map(user => `<li class="userListItem">${user.username}</li>`).join('')}`
+})
