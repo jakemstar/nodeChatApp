@@ -31,6 +31,22 @@ socket.on('chat message', function(messageObject) {
     window.scrollTo(0, document.body.scrollHeight);
 });
 
+socket.on('previous messages', function(data) {
+    //console.log(data.messageHistory);
+    //console.log(data.room);
+    data.messageHistory.forEach((messageData, i) => {
+        if (data.room === messageData.messageRoom) {
+            //console.log(messageData);
+            //console.log(messageData.message);
+            var item = document.createElement('div');
+            item.classList.add('message');
+            item.innerHTML = `<p class="meta">${messageData.username} <span>${messageData.time}</span></p><p class="text">${messageData.message}</p>`;
+            document.getElementById("messages").appendChild(item);
+        }
+    });
+})
+    
+
 socket.on('roomUsers', ({ room, users }) => {
     roomHeader.innerText = `Users In ${room}`;
 

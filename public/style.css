@@ -110,6 +110,7 @@ body {
         border-top-right-radius: .5em;
         border-bottom-right-radius: .5em;
     }
+    
     #messageInput { 
         border: none; 
         font-size: large;

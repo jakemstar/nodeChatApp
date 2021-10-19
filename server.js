@@ -8,6 +8,8 @@ const path = require('path');
 const formatMessage = require('./utils/messages');
 const { userJoin, getCurrentUser, userLeave, getRoomUsers } = require('./utils/users');
 
+const messageHistory = [];
+
 // set static folder to public
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -16,9 +18,11 @@ io.on('connection', (socket) => {
   socket.on('joinRoom', ({username, room}) => {
     const user = userJoin(socket.id, username, room);
 
+    socket.emit('previous messages', { messageHistory, room });
+
     socket.join(user.room);
 
-    socket.broadcast.to(user.room).emit('chat message', formatMessage('Server', `${user.username} joined`))
+    socket.broadcast.to(user.room).emit('chat message', formatMessage('Server', `${user.username} joined`));
 
     io.to(user.room).emit('roomUsers', {
       room: user.room,
@@ -28,6 +32,7 @@ io.on('connection', (socket) => {
 
   socket.on('chat message', (msg) => {
     const user = getCurrentUser(socket.id);
+    messageHistory.push({ ...formatMessage(user.username, msg), messageRoom : user.room });
     io.to(user.room).emit('chat message', formatMessage(user.username, msg));
   });
 
