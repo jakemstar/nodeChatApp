@@ -39,7 +39,6 @@ socket.on('previous messages', function(data) {
         }
     });
 })
-    
 
 socket.on('roomUsers', ({ room, users }) => {
     roomHeader.innerText = `Users In ${room}`;
