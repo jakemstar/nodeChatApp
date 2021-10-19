@@ -1,12 +1,11 @@
 const moment = require('moment');
+const fs = require('fs');
 
-const emotes = ["slep", "slurp", "1rock", "4real", "bananaeat", "BloodOfTheUnforgiven", "BUP", "CharmedChamp", "ColoraptorApproved", 
-"ColoraptorDisapproved", "crunk", "ducksanyu", "flatchamp", "gayvery", "glasses", "haha", "hahahafuckyou", "hungry", "jacob", 
-"KirbyNoApprove", "KirbySaysTimeToDie", "kiwi","KpopAnger", "meet", "flatvery", "princecharming", "rasim", "SamuraiAnger", "SamuraiApproved", 
-"superior", "suplilbitch"];
+var emotes = fs.readdirSync('./public/emotes');
+var emoteNames = emotes.map(emote => emote.slice(0, -4))
 
 function handleEmotes(message){
-    emotes.forEach(emote => message = message.replace(new RegExp(`:${emote}:`, 'g'), `<img src="emotes/${emote}.png" height="50" width="50">`));
+    emoteNames.forEach((emoteName, i) => message = message.replace(new RegExp(`:${emoteName}:`, 'g'), `<img src="emotes/${emotes[i]}" height="50" width="50">`));
     return message;
 }
 
