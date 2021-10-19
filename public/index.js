@@ -21,13 +21,11 @@ if (messageInput.value) {
 });
 
 socket.on('chat message', function(messageObject) {
-    // create chat message
     var item = document.createElement('div');
     item.classList.add('message');
     item.innerHTML = `<p class="meta">${messageObject.username} <span>${messageObject.time}</span></p><p class="text">${messageObject.message}</p>`;
     document.getElementById("messages").appendChild(item);
 
-    // scroll to bottom
     window.scrollTo(0, document.body.scrollHeight);
 });
 

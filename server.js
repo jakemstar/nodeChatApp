@@ -10,10 +10,8 @@ const { userJoin, getCurrentUser, userLeave, getRoomUsers } = require('./utils/u
 
 const messageHistory = [];
 
-// set static folder to public
 app.use(express.static(path.join(__dirname, 'public')));
 
-// run when 
 io.on('connection', (socket) => {
   socket.on('joinRoom', ({username, room}) => {
     const user = userJoin(socket.id, username, room);
