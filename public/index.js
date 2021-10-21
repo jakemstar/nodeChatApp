@@ -8,7 +8,7 @@ var userList = document.getElementById('userList');
 var roomHeaderOffcanvas = document.getElementById('roomHeaderOffcanvas');
 var userListOffcanvas = document.getElementById('userListOffCanvas');
 var offcanvasMenu = document.getElementById('offcanvasMenu');
-var showUsers = document.getElementById('showUsers');
+var bsOffCanvasMenu = new bootstrap.Offcanvas(offcanvasMenu)
 
 const { username, room } = Qs.parse(location.search, {
     ignoreQueryPrefix: true
@@ -51,3 +51,7 @@ socket.on('roomUsers', ({ room, users }) => {
     userListOffcanvas.innerHTML=`${users.map(user => `<li class="userListItem">${user.username}</li>`).join('')}`;
     userList.innerHTML=`${users.map(user => `<li class="userListItem">${user.username}</li>`).join('')}`;
 })
+
+function cringe(){
+    bsOffCanvasMenu.toggle();
+}
