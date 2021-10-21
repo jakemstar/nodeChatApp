@@ -5,6 +5,10 @@ var messageForm = document.getElementById('messageForm');
 var messageInput = document.getElementById('messageInput');
 var roomHeader = document.getElementById('roomHeader');
 var userList = document.getElementById('userList');
+var roomHeaderOffcanvas = document.getElementById('roomHeaderOffcanvas');
+var userListOffcanvas = document.getElementById('userListOffCanvas');
+var offcanvasMenu = document.getElementById('offcanvasMenu');
+var showUsers = document.getElementById('showUsers');
 
 const { username, room } = Qs.parse(location.search, {
     ignoreQueryPrefix: true
@@ -42,6 +46,8 @@ socket.on('previous messages', function(data) {
 
 socket.on('roomUsers', ({ room, users }) => {
     roomHeader.innerText = `Users In ${room}`;
+    roomHeaderOffcanvas.innerText = `Users In ${room}`;
 
-    userList.innerHTML=`${users.map(user => `<li class="userListItem">${user.username}</li>`).join('')}`
+    userListOffcanvas.innerHTML=`${users.map(user => `<li class="userListItem">${user.username}</li>`).join('')}`;
+    userList.innerHTML=`${users.map(user => `<li class="userListItem">${user.username}</li>`).join('')}`;
 })

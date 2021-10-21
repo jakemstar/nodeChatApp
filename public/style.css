@@ -76,10 +76,34 @@ body {
     font-size: large;
 }
 
+.showUsers{
+    display: none;
+}
+
+#userListOffCanvas{
+    padding: 0;
+}
+
+.btn-bottom{
+    position: fixed;
+    bottom: 10px;
+    width:100%;
+    height:100%;
+    box-shadow: none;
+    opacity: 100%;
+    background-color: rgba(0,0,0,0);
+    border-color: rgba(0,0,0,0)
+}
+
 @media screen and (max-width: 768px) {
 
     .details{
         display: none;
+    }
+
+    .showUsers{
+        display: inline;
+        border-radius: .5em;
     }
 
     .userListItem{
@@ -114,4 +138,9 @@ body {
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
    }
+
+    .showUsers{
+        display: inline;
+        border-radius: .5em !important;
+    }
 }
