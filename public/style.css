@@ -52,12 +52,12 @@ body {
 }
 
 #messageForm { 
-    background: #A6B1E1; 
+    background: #A6B1E1;
     padding: .5em;
 }
 
 #messageInput { 
-    border: none; 
+    border: none;
     border-radius: .5em;
     font-size: large;
     padding: .3em;
@@ -159,4 +159,22 @@ body {
         display: inline;
         border-radius: .5em !important;
     }
+}
+
+.displayBlock{
+    display:block;
+}
+
+.littleMargin{
+    margin: 1rem 0rem;
+}
+
+.littlePadding{
+    padding: 0.6rem 2rem;
+}
+
+#offcanvasMenu{
+    border-top-right-radius: .5em;
+    border-bottom-right-radius: .5em;
+    background-color: #e6ebf0;
 }
