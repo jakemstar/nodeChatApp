@@ -16,6 +16,10 @@
     top: 0;
 }
 
+.menuContainer{
+    margin-top: 5em;
+}
+
 .detailsItem{
     background-color: #D7E1FA;
     height: 100%;
@@ -65,6 +69,18 @@ body {
 }
 
 #messageForm > button { 
+    background: #DCD6F7; 
+    border: none; 
+    outline: none; 
+    color: #000; 
+    border-radius: .5em;
+    padding: .3em;
+    padding-left: .6em;
+    padding-right: .6em;
+    font-size: large;
+}
+
+.submitButton{
     background: #DCD6F7; 
     border: none; 
     outline: none; 
