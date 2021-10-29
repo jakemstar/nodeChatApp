@@ -8,6 +8,7 @@ const path = require('path');
 const formatMessage = require('./utils/messages');
 const { userJoin, getCurrentUser, userLeave, getRoomUsers } = require('./utils/users');
 const { MongoClient } = require('mongodb');
+const PORT = process.env.PORT || 5000;
 
 const uri = "mongodb+srv://chatApp:7NvTc3SKFTD.Ckp@cluster0.v7zpo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 const client = new MongoClient(uri);
@@ -88,6 +89,6 @@ io.on('connection', (socket) => {
   })
 })
 
-server.listen(80, () => {
-  console.log('listening on *:80');
+server.listen(PORT, () => {
+  console.log(`listening on ${ PORT }`);
 });
