@@ -9,7 +9,7 @@ const formatMessage = require('./utils/messages');
 const { userJoin, getCurrentUser, userLeave, getRoomUsers } = require('./utils/users');
 const { MongoClient } = require('mongodb');
 
-const uri = "redacted"
+const uri = "mongodb+srv://chatApp:7NvTc3SKFTD.Ckp@cluster0.v7zpo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 const client = new MongoClient(uri);
 
 async function dataBaseStuff(){
