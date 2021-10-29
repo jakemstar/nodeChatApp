@@ -10,7 +10,7 @@ const { userJoin, getCurrentUser, userLeave, getRoomUsers } = require('./utils/u
 const { MongoClient } = require('mongodb');
 const PORT = process.env.PORT || 5000;
 
-const uri = "mongodb+srv://chatApp:7NvTc3SKFTD.Ckp@cluster0.v7zpo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+const uri = process.env.MONGODB_URI;
 const client = new MongoClient(uri);
 
 async function dataBaseStuff(){
