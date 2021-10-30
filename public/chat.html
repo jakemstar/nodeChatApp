@@ -20,11 +20,17 @@
                 <div id="messages" class="col-md-9"></div>
             </div>
             <div class="row">
-                <form id="messageForm" class="fixed-bottom text-center" action="" autocomplete="off">
+                <form id="messageForm" class="fixed-bottom text-center" action="messageInput" autocomplete="off">
                     <button class="showUsers" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu">
                         <i class="fas fa-users"></i>
                     </button>
-                    <input id="messageInput" /><button class="mx-sm-2 sendButton">Send</button>
+                    <button class="dropupButton" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="far fa-smile-beam"></i>
+                    </button>
+                    <div class="dropdown-menu emojiDropdown">
+                        <table class="emojiTable"></table>
+                    </div>
+                    <input id="messageInput" /><button type="submit" class="mx-sm-2 sendButton">Send</button>
                 </form>
             </div>
         </div>

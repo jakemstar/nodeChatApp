@@ -52,6 +52,17 @@ socket.on('roomUsers', ({ room, users }) => {
     userList.innerHTML=`${users.map(user => `<li class="userListItem">${user.username}</li>`).join('')}`;
 })
 
+socket.on('get emotes', (emotes) => {
+    var currentRow = 0;
+    emotes.forEach((emote, i) => {
+        if(i%6 === 0){
+            $(".emojiTable").append(`<tr id="emojiRow${i}"></tr>`)
+            currentRow = i;
+        }
+        $(`#emojiRow${currentRow}`).append(`<td><img src="emotes/${emote}" height="30" width="30" /></td>`);
+    });
+})
+
 function cringe(){
     bsOffCanvasMenu.toggle();
 }

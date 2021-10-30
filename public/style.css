@@ -25,7 +25,7 @@
     height: 100%;
     margin: 0;
     margin-top: .5em;
-    border-radius: .3em; 
+    border-radius: .25em; 
     padding-left: .2em;
     padding-right: .2em;
 }
@@ -43,7 +43,7 @@ body {
     width: 100%;
     margin: .5em 0;
     padding: .5em;
-    border-radius: .3em; 
+    border-radius: .25em; 
     overflow-wrap: anywhere;
 }
 
@@ -58,7 +58,7 @@ body {
 
 #messageInput { 
     border: none;
-    border-radius: .5em;
+    border-radius: .25em;
     font-size: large;
     padding: .3em;
     width: 40%;
@@ -73,7 +73,7 @@ body {
     border: none; 
     outline: none; 
     color: #000; 
-    border-radius: .5em;
+    border-radius: .25em;
     padding: .3em;
     padding-left: .6em;
     padding-right: .6em;
@@ -85,11 +85,29 @@ body {
     border: none; 
     outline: none; 
     color: #000; 
-    border-radius: .5em;
+    border-radius: .25em;
     padding: .3em;
     padding-left: .6em;
     padding-right: .6em;
     font-size: large;
+}
+
+.dropupButton{
+    background: #DCD6F7; 
+    border: none; 
+    outline: none; 
+    color: #000; 
+    border-radius: .25em;
+    padding: .3em;
+    padding-left: .6em;
+    padding-right: .6em;
+    font-size: large;
+    border-radius: 0.25em !important;
+}
+
+.emojiDropdown{
+    padding: 0.3em !important;
+    bottom: 10px !important;
 }
 
 .showUsers{
@@ -119,7 +137,7 @@ body {
 
     .showUsers{
         display: inline;
-        border-radius: .5em;
+        border-radius: .25em;
     }
 
     .userListItem{
@@ -140,8 +158,8 @@ body {
         font-size: large;
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
-        border-top-right-radius: .5em;
-        border-bottom-right-radius: .5em;
+        border-top-right-radius: .25em;
+        border-bottom-right-radius: .25em;
     }
     
     #messageInput { 
@@ -149,15 +167,15 @@ body {
         font-size: large;
         padding: .3em;
         width: 40%;
-        border-top-left-radius: .5em;
-        border-bottom-left-radius: .5em;
+        border-top-left-radius: .25em;
+        border-bottom-left-radius: .25em;
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
    }
 
     .showUsers{
         display: inline;
-        border-radius: .5em !important;
+        border-radius: .25em !important;
     }
 }
 

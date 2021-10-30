@@ -5,7 +5,7 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
 const path = require('path');
-const formatMessage = require('./utils/messages');
+const { formatMessage, getEmotes } = require('./utils/messages');
 const { userJoin, getCurrentUser, userLeave, getRoomUsers } = require('./utils/users');
 const { MongoClient } = require('mongodb');
 const PORT = process.env.PORT || 5000;
@@ -58,6 +58,8 @@ io.on('connection', (socket) => {
     catch{
       console.log("Message history fucked up");
     }
+
+    socket.emit('get emotes', getEmotes());
 
     const user = userJoin(socket.id, username, room);
 
