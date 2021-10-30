@@ -65,8 +65,6 @@ io.on('connection', (socket) => {
 
     socket.join(user.room);
 
-    // socket.broadcast.to(user.room).emit('chat message', formatMessage('Server', `${user.username} joined`));
-
     io.to(user.room).emit('roomUsers', {
       room: user.room,
       users: getRoomUsers(user.room)
@@ -82,7 +80,6 @@ io.on('connection', (socket) => {
   socket.on('disconnect', () => {
     const user = userLeave(socket.id);
     if (user){
-      // io.to(user.room).emit('chat message', formatMessage('Server', `${user.username} left`));
       io.to(user.room).emit('roomUsers', {
         room: user.room,
         users: getRoomUsers(user.room)
