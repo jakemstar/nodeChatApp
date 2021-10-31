@@ -59,9 +59,14 @@ socket.on('get emotes', (emotes) => {
             $(".emojiTable").append(`<tr id="emojiRow${i}"></tr>`)
             currentRow = i;
         }
-        $(`#emojiRow${currentRow}`).append(`<td><img src="emotes/${emote}" height="30" width="30" /></td>`);
+        $(`#emojiRow${currentRow}`).append(`<td><img src="emotes/${emote}" onclick="emojiOnclick(':${emote.slice(0, -4)}:')" height="30" width="30" /></td>`);
     });
 })
+
+function emojiOnclick(emoji){
+    messageInput.value += emoji;
+    messageInput.focus();
+}
 
 function cringe(){
     bsOffCanvasMenu.toggle();
