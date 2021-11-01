@@ -42,7 +42,8 @@ body {
     background-color: #B5CDE8;
     width: 100%;
     margin: .5em 0;
-    padding: .5em;
+    border: .5em solid #B5CDE8;
+    overflow: auto;
     border-radius: .25em; 
     overflow-wrap: anywhere;
 }
