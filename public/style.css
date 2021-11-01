@@ -40,16 +40,20 @@ body {
 
 .message{
     background-color: #B5CDE8;
+    border: .5em solid #B5CDE8;
     width: 100%;
     margin: .5em 0;
-    border: .5em solid #B5CDE8;
-    overflow: auto;
+    /*overflow: auto;*/
     border-radius: .25em; 
     overflow-wrap: anywhere;
 }
 
 .message p{
     margin: 0;
+}
+
+.text > img {
+    max-width: 100%;
 }
 
 #messageForm { 
