@@ -52,7 +52,7 @@ body {
     margin: 0;
 }
 
-.text > img {
+.text > img :not(.emojiText) {
     max-width: 100%;
 }
 
@@ -113,6 +113,16 @@ body {
 .emojiDropdown{
     padding: 0.3em !important;
     bottom: 10px !important;
+}
+
+.emojiTableData{
+    max-height: 30px;
+    max-width: 30px;
+}
+
+.emojiText{
+    max-height: 50px;
+    max-width: 50px;
 }
 
 .showUsers{

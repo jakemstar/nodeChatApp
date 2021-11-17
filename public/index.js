@@ -63,7 +63,7 @@ socket.on('get emotes', (emotes) => {
             $(".emojiTable").append(`<tr id="emojiRow${i}"></tr>`)
             currentRow = i;
         }
-        $(`#emojiRow${currentRow}`).append(`<td><img src="emotes/${emote}" onclick="emojiOnclick(':${emote.slice(0, -4)}:')" height="30" width="30" /></td>`);
+        $(`#emojiRow${currentRow}`).append(`<td><img class="emojiTableData" src="emotes/${emote}" onclick="emojiOnclick(':${emote.slice(0, -4)}:')" /></td>`);
     });
 })
 

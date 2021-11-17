@@ -11,7 +11,7 @@ function getEmotes(){
 
 function handleEmotes(message){
     emoteNames.forEach((emoteName, i) => message = message.replace(
-        new RegExp(`:${emoteName}:`, 'g'), `<img src="emotes/${emotes[i]}" height="50" width="50">`
+        new RegExp(`:${emoteName}:`, 'g'), `<img class="emojiText" src="emotes/${emotes[i]}">`
         ));
     return message;
 }
