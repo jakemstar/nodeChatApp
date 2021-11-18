@@ -52,8 +52,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 io.on('connection', (socket) => {
   socket.on('joinRoom', async ({username, room}) => {
     try{
-    const messageHistory = await getHistory(client, room);
-    socket.emit('previous messages', { messageHistory, room });
+      const messageHistory = await getHistory(client, room);
+      socket.emit('previous messages', { messageHistory, room });
     }
     catch{
       console.log("Message history fucked up");
